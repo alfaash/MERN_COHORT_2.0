@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <!-- <style>
+    button{
+      background-color:aquamarine;
+      border-radius: 15px;
+      border:none;
+      padding: 5px 15px;
+      transition-duration: 100ms;
+    }
+    button:hover{
+      transform: scale(1.05);
+      transition-duration: 200ms;
+    }
+    #root{
+      position:absolute;
+      top:50%;
+      left: 50%;
+    }
+  </style> -->
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- <script>
+      let state = {
+        count: 0
+      }
+      function updateState(){
+        state.count++;
+        buttonComponentReRender();
+      }
+      function buttonComponentReRender(){
+        document.getElementById("root").innerHTML = ""; 
+        const button = buttonComponent(state.count);
+        document.getElementById("root").appendChild(button);
+      }
+      function buttonComponent(count){
+        const button = document.createElement("button");
+        button.innerHTML = `Counter ${count}`;
+        button.setAttribute("onclick","updateState()");
+        return button;
+      }
+      buttonComponentReRender();
+    </script> -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+ 

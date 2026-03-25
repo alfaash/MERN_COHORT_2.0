@@ -1,0 +1,22 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon script2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.2",
+    "zod": "^4.2.1"
+  }
+}
