@@ -1,4 +1,4 @@
-// ROUTING
+//  
 import {lazy} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 // import  Dashboard  from './components/Dashboard'
