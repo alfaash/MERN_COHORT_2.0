@@ -1,18 +1,29 @@
+import { useEffect } from 'react';
 import {useNavigate, useParams} from 'react-router-dom'
-import {useRecoilValue} from "recoil"
-import {posts} from "./atom"
+import {useRecoilValue, useRecoilState} from "recoil"
+import {posts, postsAtomFamily} from "./atom"
 
 export default function PostDetail(){
     const navigate = useNavigate();
+    let postID = useParams();
+    postID.id = Number(postID.id);
     
-    const postID = useParams();
+    const [postsStatus, updatePostsStatus] = useRecoilState(postsAtomFamily(postID.id));
+    useEffect(()=>{
+        updatePostsStatus({
+            id: Number(postID.id),
+            status: "read"
+        })
+    },[]);
+
     function clickHandler(path){
         navigate(path)
     }
-    let pst = useRecoilValue(posts);
+    const pst = useRecoilValue(posts);
     const post = pst.find((p)=>{
         if(p.id==(postID.id)) return p;
     })
+
     return (
         <>
         <h1>Title: {post.title}</h1>

@@ -1,4 +1,4 @@
-import {atom} from "recoil"
+import {atom, atomFamily} from "recoil"
 
 export const posts = atom({
     key:"posts",
@@ -7,4 +7,14 @@ export const posts = atom({
   { id: 2, title: "Understanding Hooks", content: "Hooks let you use state in functional components..." },
   { id: 3, title: "Why use Recoil?", content: "Recoil gives React apps simple global state management..." },
 ]
+})
+
+export const postsAtomFamily = atomFamily({
+  key:"postsAtomFamily",
+  default: id =>{
+    return {
+      id: id,
+      status: "unread"
+    }
+  }
 })
