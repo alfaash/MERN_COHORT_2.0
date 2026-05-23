@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [todo, setTodo] = useState([]);
-
+  console.log("function")
   useEffect(()=>{
     setInterval(()=>{
       fetch("http://localhost:3000").then(async (tod)=>{
         const json = await tod.json();
         setTodo(json.todos);
       })
-    },5000)
+    },500000)
+    console.log("UseEffect");
   },[]);
 
   return (
