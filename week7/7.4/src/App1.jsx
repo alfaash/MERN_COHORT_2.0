@@ -1,28 +1,32 @@
 import './App.css'
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { notifications, totalNotificationSelector } from './atoms1'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import axios from 'axios'
 
 // ASYNCHRONOUS DATA QUERIES
 
 function App() {
-  return <RecoilRoot>
-    <MainApp />
+  return (
+  <RecoilRoot>
+    <Suspense fallback={<div>Loading...</div>}>
+      <MainApp />
+    </Suspense>
   </RecoilRoot>
+  )
 }
 
 function MainApp() {
   const [networkCount, setNetworkCount] = useRecoilState(notifications);
   const totalNotificationCount = useRecoilValue(totalNotificationSelector);
 
-  useEffect(() => {
-    // fetch
-    axios.get("http://localhost:3000/")
-      .then(res => {
-        setNetworkCount(res.data)
-      })
-  }, [])
+  // useEffect(() => {
+  //   // fetch
+  //   axios.get("http://localhost:3000/")
+  //     .then(res => {
+  //       setNetworkCount(res.data)
+  //     })
+  // }, [])
 
   return (
     <>

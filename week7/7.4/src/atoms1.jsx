@@ -8,7 +8,7 @@ export const notifications = atom({
     default: selector({
         key:"notificationsSelector",
         get: async ()=>{
-            await new Promise(r=> setTimeout(r,5000));
+            await new Promise((res,rej)=> {setTimeout(res,5000)});
             const res = await axios.get("http://localhost:3000");
             return res.data;
         }

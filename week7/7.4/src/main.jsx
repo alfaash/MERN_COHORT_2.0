@@ -12,8 +12,8 @@ import App3 from './App3.jsx'
 createRoot(document.getElementById('root')).render(
   <RecoilRoot>
     {/* <App /> */}
-    {/* <App1 /> */}
+    <App1 />
     {/* <App2/> */}
-    <App3/>
+    {/* <App3/> */}
   </RecoilRoot>
 )
