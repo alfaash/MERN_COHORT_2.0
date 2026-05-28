@@ -1,7 +1,7 @@
 // SELECTOR FAMILY
 
 import './App.css'
-import { RecoilRoot, useRecoilState, useRecoilStateLoadable } from 'recoil';
+import { RecoilRoot, useRecoilState, useRecoilStateLoadable,useRecoilValueLoadable } from 'recoil';
 import { todosAtomFamily } from './atoms3';
 
 function App() {
@@ -16,7 +16,7 @@ function Todo({id}) {
 
 
 // useRecoilStateLoadable 
-const [todo, setTodo] = useRecoilStateLoadable(todosAtomFamily(id));
+const todo = useRecoilValueLoadable(todosAtomFamily(id));
    console.log("STATE: ",todo.state);
     if(todo.state=="loading"){
         return (

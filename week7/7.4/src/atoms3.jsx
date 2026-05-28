@@ -14,14 +14,3 @@ export const todosAtomFamily = atomFamily({
     },
   })
 });
-
-export const todAtomFamily = atomFamily({
-  id:"todoAtomFamily",
-  default: selectorFamily({
-    id:"todoSelectorFamily",
-    get: (id)=> async ({get})=>{
-      const res = await axios.get(`http://localhost:3000/todos?id=${id}`)
-      return res.data.todo;
-    },
-  })
-})
