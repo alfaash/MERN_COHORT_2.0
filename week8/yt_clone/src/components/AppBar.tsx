@@ -8,7 +8,8 @@ export const AppBar = ()=>{
             <Searchbar/>
         </div>
         <div>
-            Sign in
+            Sign
+            
         </div>
     </div>
 }   
