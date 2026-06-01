@@ -1,0 +1,86 @@
+import { useState } from 'react'
+import './App.css'
+
+
+function App() {
+
+  return (
+    <div className="grid grid-cols-12 h-screen">
+      <div className='hidden lg:flex col-span-2 flex flex-col text-center font-normal'>
+          <div className="grid grid-cols-4 flex-1 bg-blue-950">
+            <div className='col-span-1 flex justify-center items-center'><img src="/nishyan.svg" alt="" /></div>
+            <div className='col-span-2 flex flex-col justify-center items-start text-red-50 ms-3'>
+              <div>Nishyan</div>
+              <div className='text-xs'><a href="#" className='underline text-gray-400'>Visit Store</a></div>
+            </div>
+            <div className='col-span-1 flex justify-center items-center text-red-50'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className='h-5 w-5 fill-white  '><path d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg></div>
+          </div>
+          <div className="flex-9 bg-blue-950 text-red-50 flex flex-col items-start p-1">
+            <div className='ps-4 pt-2 pb-2 flex justify-center items-center text-gray-300'>
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className='fill-gray-300 h-5 w-5 me-3'><path d="M240 6.1c9.1-8.2 22.9-8.2 32 0l232 208c9.9 8.8 10.7 24 1.8 33.9s-24 10.7-33.9 1.8l-8-7.2 0 205.3c0 35.3-28.7 64-64 64l-288 0c-35.3 0-64-28.7-64-64l0-205.3-8 7.2c-9.9 8.8-25 8-33.9-1.8s-8-25 1.8-33.9L240 6.1zm16 50.1L96 199.7 96 448c0 8.8 7.2 16 16 16l48 0 0-104c0-39.8 32.2-72 72-72l48 0c39.8 0 72 32.2 72 72l0 104 48 0c8.8 0 16-7.2 16-16l0-248.3-160-143.4zM208 464l96 0 0-104c0-13.3-10.7-24-24-24l-48 0c-13.3 0-24 10.7-24 24l0 104z"/></svg>
+              Home
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/orders.svg" alt="" />
+              Order
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/products.svg" alt="" />
+              Products
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/delivery.svg" alt="" />
+              Delivery
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/marketing.svg" alt="" />
+              Marketing
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/analytics.svg" alt="" />
+              Analytics
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 bg-gray-600 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/payouts.svg" alt="" />
+              Payouts
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/discounts.svg" alt="" />
+              Discounts
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/audience.svg" alt="" />
+              Audience
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/appearence.svg" alt="" />
+              Appearence
+            </div>
+            <div className='ps-4 pt-2 pb-2 flex justify-start items-center text-gray-300 rounded-md w-full'>
+               <img className='h-5 w-5 me-3' style={{filter: 'invert(1)'}} src="/plugins.svg" alt="" />
+              Plugins
+            </div>
+          </div>
+          <div className="flex-1 bg-blue-950">
+            <div className='flex mx-4 rounded-md bg-gray-600 text-red-50 p-1'>
+              <div className='flex-1 flex justify-center items-center bg-gray-500 rounded m-1 mr-3 p-1'>
+                <img className='w-8 h-8' style={{filter:'invert(0.9)'}} src='/wallet.svg'></img>
+              </div>
+              <div className='flex-5 flex flex-col items-start justify-start text-sm'>
+                <div className='text-gray-300 font-thin place-items-start'>Available Credits</div>
+                <div className='font-medium'>224.10</div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div className='col-span-12 lg:col-span-10 text-center bg-red-500'>
+        <div className='flex lg:hidden'>
+          Hello
+        </div>
+        Main bar
+      </div>
+    </div>
+  )
+}
+
+export default App
