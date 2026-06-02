@@ -73,11 +73,53 @@ function App() {
             </div>
           </div>
       </div>
-      <div className='col-span-12 lg:col-span-10 text-center bg-red-500'>
-        <div className='flex lg:hidden'>
-          Hello
+      <div className='col-span-12 lg:col-span-10 text-center bg-slate-50'>
+        {/* Header */}
+        <div className='flex justify-between items-center border-1 border-gray-400 h-17'>
+          {/* Payouts */}
+          <div className='flex justify-between w-50 lg:w-40 mx-7'>
+            <div className='flex lg:hidden'>
+              {/* Hamburgur menu for opening the sidebar */}
+              Hello
+            </div>
+            <div className='font-normal text-lg'>Payouts</div>
+            <div className='flex justify-center items-center ms-2'>
+              <img  className='h-3 w-3' src="/qMark.svg" alt="" />
+              <p className='text-xs ms-1 text-gray-500'>How it works</p>
+            </div>
+          </div>
+          {/* Searchbar */}
+          <div className="relative w-75 lg:w-100 max-w-xl">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search features, tutorials, etc."
+              className="w-full rounded-lg border border-gray-200 bg-gray-200 py-3 pl-12 pr-4 text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none"
+            />
+          </div>
+          {/* Message section */}
+          <div className='flex justify-evenly items-center w-25 me-5'>
+            <div className='w-9 h-9 bg-gray-200 rounded-full'>
+              <img className='h-5 w-5' src="/messaging.webp" alt="" />
+            </div>
+            <div className='w-9 h-9 bg-gray-200 rounded-full'>
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" class="text-2xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">…</svg>
+            </div>
+          </div>
         </div>
-        Main bar
       </div>
     </div>
   )
