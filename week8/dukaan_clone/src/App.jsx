@@ -111,6 +111,7 @@ function App() {
             />
           </div>
           {/* Message section */}
+          
           <div className='flex justify-evenly items-center w-25 me-5'>
             <div className='w-9 h-9 bg-gray-200 rounded-full'>
               <img className='h-5 w-5' src="/messaging.webp" alt="" />
