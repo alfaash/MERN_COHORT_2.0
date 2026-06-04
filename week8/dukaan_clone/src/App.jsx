@@ -3,10 +3,22 @@ import './App.css'
 
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="grid grid-cols-12 h-screen">
-      <div className='hidden lg:flex col-span-2 flex flex-col text-center font-normal'>
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden" 
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      {/* close button */}
+      <button className={`${isOpen?"fixed":"hidden"} w-7 h-7 rounded-full right-4 top-5 text-center z-50`} onClick={()=>setIsOpen(false)}>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" className="text-white text-3xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm52.7 283.3L256 278.6l-52.7 52.7c-6.2 6.2-16.4 6.2-22.6 0-3.1-3.1-4.7-7.2-4.7-11.3 0-4.1 1.6-8.2 4.7-11.3l52.7-52.7-52.7-52.7c-3.1-3.1-4.7-7.2-4.7-11.3 0-4.1 1.6-8.2 4.7-11.3 6.2-6.2 16.4-6.2 22.6 0l52.7 52.7 52.7-52.7c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6L278.6 256l52.7 52.7c6.2 6.2 6.2 16.4 0 22.6-6.2 6.3-16.4 6.3-22.6 0z"></path></svg>
+      </button>
+      {/* Sidebar */}
+      <div className={`fixed lg:relative z-50 h-full flex flex-col text-center font-normal transform transition-transform duration-300 ${isOpen?"translate-x-0":"-translate-x-full"} lg:col-span-2 lg:translate-x-0`}>
           <div className="grid grid-cols-4 flex-1 bg-blue-950">
             <div className='col-span-1 flex justify-center items-center'><img src="/nishyan.svg" alt="" /></div>
             <div className='col-span-2 flex flex-col justify-center items-start text-red-50 ms-3'>
@@ -78,9 +90,9 @@ function App() {
         <div className='flex justify-between items-center border-1 border-gray-400 h-17'>
           {/* Payouts */}
           <div className='flex justify-between w-50 lg:w-40 mx-7'>
-            <div className='flex lg:hidden'>
+            <div className='flex lg:hidden items-center justify-center' onClick={()=>setIsOpen(!isOpen)}>
               {/* Hamburgur menu for opening the sidebar */}
-              Hello
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-2xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path></svg>
             </div>
             <div className='font-normal text-lg'>Payouts</div>
             <div className='flex justify-center items-center ms-2'>
@@ -111,13 +123,12 @@ function App() {
             />
           </div>
           {/* Message section */}
-          
           <div className='flex justify-evenly items-center w-25 me-5'>
-            <div className='w-9 h-9 bg-gray-200 rounded-full'>
+            <div className='w-9 h-9 bg-gray-200 rounded-full flex justify-center items-center '>
               <img className='h-5 w-5' src="/messaging.webp" alt="" />
             </div>
-            <div className='w-9 h-9 bg-gray-200 rounded-full'>
-              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" class="text-2xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">…</svg>
+            <div className='w-9 h-9 bg-gray-200 text-zinc-700 rounded-full flex justify-center items-center'>
+              <svg className='w-6 h-6' stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"></path></svg>
             </div>
           </div>
         </div>
