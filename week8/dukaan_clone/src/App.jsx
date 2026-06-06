@@ -132,10 +132,193 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Main Section */}
+        <div className="px-10">
+          {/* Overview */}
+          <div className=" flex flex-col py-10">
+            {/* overview header */}
+            <div className="flex justify-between mb-4">
+              <h1 className="text-lg font-medium">Overview</h1>
+              <div className='border-1 rounded-sm border-zinc-700 md:px-2'>
+                <select className='border-none outline-none' name="month" id="month">
+                  <option value="">This Month</option>
+                  <option value="">January</option>
+                  <option value="">February</option>
+                  <option value="">March</option>
+                  <option value="">April</option>
+                  <option value="">May</option>
+                  <option value="">June</option>
+                  <option value="">July</option>
+                  <option value="">August</option>
+                  <option value="">September</option>
+                  <option value="">October</option>
+                  <option value="">November</option>
+                  <option value="">December</option>
+                </select>
+              </div>
+            </div>
+            {/* Money cards */}
+            <div className="grid grid-cols-12 gap-4">
+              {/* Card 1 */}
+              <Card title={"Next Payout"} amount={"2,312.23"} orders={23} bottomSec={true}/>
+              {/* Card 2 */}
+              <Card title={"Amount Pending"} amount={"92,312.20"} orders={13} bottomSec={false}/>
+              {/* Card 3 */}
+              <Card title={"Amount Processed"} amount={"23,92,312.19"} orders={0} bottomSec={false}/>
+            </div>
+          </div>
+          <section className='flex flex-col gap-6'>
+            {/* Transaction Headline */}
+            <div className="flex flex-col gap-6">
+              <h5 class="flex font-medium text-xl">Transactions | This Month</h5>
+              <div class="flex gap-3">
+                <button class="px-4 py-[6px] bg-[#E6E6E6] text-[#808080] rounded-full" fdprocessedid="55s5fo">Payouts (22)</button>
+                <button class="px-4 py-[6px] bg-[#146EB4] text-[#FFFFFF] rounded-full" fdprocessedid="3o9aj">Refunds (6)</button>
+              </div>
+            </div>
+            <div className="flex flex-col px-3 pt-3 pb-2 gap-3 rounded-[8px] bg-white">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 px-4 py-[6px] border border-[#D9D9D9] text-[#808080] rounded w-full max-w-[300px]">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z"></path></svg>
+                  <input type="text" placeholder="Order ID or transactions ID" className="bg-transparent outline-none w-full" />
+                </div>
+                <div className="flex items-center gap-3">
+                  <button className="flex items-center gap-[6px] px-3 py-[6px] border border-[#D9D9D9] text-[#4D4D4D] rounded min-w-[75px]">
+                    <img alt="updown icon" loading="lazy" width="14" height="14" decoding="async" src="/updown.png" />
+                  </button>
+                  <button className="flex items-center p-2 border border-[#D9D9D9] text-[#4D4D4D] rounded">
+                    <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  </button>
+                </div>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full">
+                  <colgroup>
+                    <col className="w-1/5" /><col className="w-1/5" /><col className="w-1/5" /><col className="w-1/5" /><col className="w-1/5" />
+                  </colgroup>
+                  <thead className="text-[#4D4D4D]">
+                    <tr className="bg-[#F2F2F2]">
+                      <th className="px-3 py-[10px] text-left text-sm font-medium tracking-wider rounded-l">Order ID</th>
+                      <th className="px-3 py-[10px] text-left text-sm font-medium tracking-wider">Status</th>
+                      <th className="px-3 py-[10px] text-left text-sm font-medium tracking-wider">Transaction ID</th>
+                      <th className="px-3 py-[10px] text-left text-sm font-medium tracking-wider">Refund Date</th>
+                      <th className="px-3 py-[10px] text-right text-sm font-medium tracking-wider rounded-r">Order Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-[#E6E6E6]">
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281209</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX123456</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Today, 8:45 PM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹1125.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281210</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX789012</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Tomorrow, 10:00 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹950.50</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281211</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX345678</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Yesterday, 3:30 PM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹750.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281212</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX901234</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Today, 11:20 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹2000.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281213</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX567890</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Tomorrow, 9:00 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹1800.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281214</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX098765</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Yesterday, 2:00 PM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹500.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281215</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX456789</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Today, 10:30 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹3000.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281216</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX987654</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Tomorrow, 11:30 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹1200.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281217</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX654321</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Yesterday, 4:00 PM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹900.00</td>
+                    </tr>
+                    <tr className="text-sm">
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281218</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX234567</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Today, 9:45 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹1500.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+
       </div>
     </div>
   )
 }
 
+function Card(props){
+  return (
+    <div className="flex flex-col col-span-12 sm:col-span-6 lg:col-span-4 bg-sky-700 rounded-md">
+      <div className="flex text-red-50 flex-col py-4">
+        <div className='flex items-center mb-1 ms-3'>
+          <h1 className='me-2'>{props.title}</h1>
+          <svg className='h-4 w-4' stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></svg>
+        </div>
+        <div className='flex justify-between'>
+          <h1 className='flex-1 text-3xl font-semibold'>₹{props.amount}</h1>
+            {
+              props.orders !=0 ? (
+                <div className='flex-1 flex items-center justify-center'>
+                  <h1 className="underline">23 Order</h1>
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" className="h-4 w-4" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg>
+                </div>
+              ):null
+            }
+        </div>
+      </div>
+      {
+        props.bottomSec?(
+          <div className="bg-sky-800 rounded-md text-red-50 px-6 py-2 flex justify-between items-center">
+            <span className=''>Next Payment Date: </span>
+            <span className=''>Today, 4:00PM</span>
+          </div>
+        ):null
+      }
+    </div>
+  )
+}
 export default App
 
