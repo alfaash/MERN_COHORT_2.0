@@ -218,7 +218,7 @@ function App() {
                       <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281210</td>
                       <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-[#999999] w-[10px] h-[10px] rounded-full"></span>Processing</td>
                       <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX789012</td>
-                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Tomorrow, 10:00 AM</td>
+                      <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">Tomorrow, 11:00 AM</td>
                       <td className="px-3 py-[10px] whitespace-nowrap text-[#1A181E] text-right">₹950.50</td>
                     </tr>
                     <tr className="text-sm">
