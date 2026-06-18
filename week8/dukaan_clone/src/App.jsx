@@ -231,6 +231,7 @@ function App() {
 
                     {/*Name changed */}
                     <tr className="text-sm">
+                      
                       <td className="px-3 py-[10px] whitespace-nowrap text-[#146EB4] font-medium">#281212</td>
                       <td className="px-3 py-[10px] whitespace-nowrap flex items-center gap-[6px] text-[#1A181E]"><span className="bg-green-500 w-[10px] h-[10px] rounded-full"></span>Successful</td>
                       <td className="px-3 py-[10px] whitespace-nowrap text-[#4D4D4D]">TRX901234</td>
