@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const db = (url)=>{
@@ -32,7 +31,9 @@ const userSchema = new mongoose.Schema({
         minlength: [8, "Password must be atleast 8 characters"],
         select: false
     }
-})
+});
+
+
 
 const User = mongoose.model('User',userSchema);
 module.exports = {db, User};
