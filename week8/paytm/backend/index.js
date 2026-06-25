@@ -1,8 +1,18 @@
+// Video delay 20.6 seconds
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const {db, User} = require("./db/connectDB");
+const apiRouter = require("../backend/routes/index")
 
 require('dotenv').config();
+app.use(cors({
+    origin:"http://localhost:5173/"
+}));
+app.use(express.json());
+
+// Routes
+app.use("/api/v1",apiRouter);
 
 const PORT = process.env.PORT || 3000;
 
