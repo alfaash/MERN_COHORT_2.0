@@ -2,7 +2,9 @@ const zod = require("zod");
 const {User} = require("../db/connectDB");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
-const JWT_TOKEN = require("../config");
+const JWT_SECRET = require("../config");
+
+
 
 // Zod user validation schema
 const userSchema = zod.object({
@@ -11,6 +13,13 @@ const userSchema = zod.object({
     lastName: zod.string(),
     password: zod.string().min(8,{
         message:"password must be atleast 8 character long"
+    })
+});
+
+const userLoginSchema = zod.object({
+    username: zod.string().email(),
+    password: zod.string().min(8,{
+        message: "password must be atleast 8 character long"
     })
 })
 
@@ -54,7 +63,7 @@ const signup = async (req,res)=>{
     }
 
     // Generating JWT token
-    const token = jwt.sign({userId: userDB._id},JWT_TOKEN,{
+    const token = jwt.sign({userId: userDB._id},JWT_SECRET,{
         expiresIn: '30d'
     });
 
@@ -62,4 +71,42 @@ const signup = async (req,res)=>{
     res.status(200).json({message:"User created successfully", token:token});
 }
 
-module.exports = {signup}
+const signin = async (req,res)=>{
+    const body = req.body;
+    const loginValidation = userLoginSchema.safeParse(req.body);
+    // Input validation
+    if(!loginValidation.success){
+        return res.status(411).json({
+            message:"Error while logging in"
+        });
+    }
+    const userData = await User.findOne({username: body.username}).select("+password");
+    if(!userData){
+        return res.status(411).json({
+            message:"Error while logging in"
+        });        
+    }
+    // Comparing passwords
+    bcrypt.compare(req.body.password, userData.password, (err)=>{
+        if(err){
+            return res.status(411).json({
+                message:"Error while logging in"
+            });    
+        }
+        else{
+            const token = jwt.sign({userId:userData._id},JWT_SECRET,{
+                expiresIn: '30d'
+            });
+            return res.status(200).json({
+                jwt:token
+            }); 
+        }
+    });
+}
+
+const userData = async (req,res)=>{
+    const data = await User.find();
+    res.status(200).json(data);
+}
+
+module.exports = {signup, signin, userData};
