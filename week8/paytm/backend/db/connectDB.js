@@ -1,3 +1,4 @@
+// 1:11:58
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
@@ -33,7 +34,21 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+const accounts = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref : 'User',
+        required: true
+    },
+    balance:{
+        type: Number,
+        min: 0,
+        required: true
+    }
+})
+
 
 
 const User = mongoose.model('User',userSchema);
-module.exports = {db, User};
+const Accounts = mongoose.model('Accounts',accounts);
+module.exports = {db, User, Accounts};
