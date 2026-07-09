@@ -1,9 +1,9 @@
-function Input({title,placeholder}){
+function Input({title,placeholder,onChange}){
 
     return(
-        <div className="flex flex-col items-start">
-            <h1 className="text-md font-medium my-1">{title}</h1>
-            <input placeholder={placeholder} className="w-full px-2 py-1 border rounded border-slate-200" />
+        <div className="flex flex-col items-start my-2">
+            <h1 className="text-sm font-bold my-1">{title}</h1>
+            <input placeholder={placeholder} onChange={onChange} className="w-full px-2 py-1 border rounded border-slate-200" />
         </div>
     )
 

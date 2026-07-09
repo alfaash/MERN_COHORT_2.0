@@ -8,7 +8,7 @@ const accountsRouter = require("../backend/routes/account");
 
 require('dotenv').config();
 app.use(cors({
-    origin:"http://localhost:5173/"
+    origin:"http://localhost:5173"
 }));
 app.use(express.json());
 
