@@ -5,7 +5,9 @@ import Subtext from "../components/Subtext"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import Errormessage from "../components/Errormessage"
+import { useNavigate } from "react-router-dom"
 function Signin(){
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return(
@@ -16,7 +18,7 @@ function Signin(){
           <Subtext text={"Enter your credentials to access your account"}/>
           <Input title={"Email"} placeholder={"ashutosh@gmail.com"} onChange={(e)=> setEmail(e.target.value)}/>
           <Input title={"Password"} placeholder={"123456"} onChange={(e)=> setPassword(e.target.value)}/>
-          <Button text={"Sign in"} onclick={()=>{signin(email,password)}}/>
+          <Button text={"Sign in"} onclick={()=>{signin(email,password,navigate)}}/>
           <Errormessage text={"Don't have an account?"} link={"Sign up"} to={"/signup"}/>
         </div>
       </div>
@@ -24,14 +26,14 @@ function Signin(){
   )
 } 
 
-async function signin(email, password) {
+async function signin(email, password,navigate) {
   try {
     const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
       username: email,
       password: password
     });
     localStorage.setItem("token", response.data.token);
-    console.log(response.data.jwt);
+    navigate("/dashboard");
   } catch (error) {
     console.log(error);
     alert("Could not sign in! Try again later");
