@@ -40,6 +40,7 @@ async function signup(fName,lName,email,password,navigate){
     });
     console.log(response);
     localStorage.setItem("token", response.data.token);
+    localStorage.setItem("name", fName+" "+lName);
     navigate("/dashboard");
   } catch (error) {
     console.log(error);
