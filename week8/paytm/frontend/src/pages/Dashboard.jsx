@@ -6,7 +6,7 @@ function Dashboard(){
     <div className="font-[-apple-system,BlinkMacSystemFont,sans-serif]">
       <Topbar/>
       <div className="mx-7">
-        <Balance amt={"10,000"}/>
+        <Balance/>
         <Users/>
       </div>
     </div>

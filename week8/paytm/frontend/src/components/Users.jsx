@@ -12,14 +12,13 @@ const Users = () => {
 
     useEffect(() => {
         // Waiting 300 ms after user stops typing to send backend request(debouncing)
-        const timer = setTimeout(()=>{
-            axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter,
+        const timer = setTimeout(async ()=>{
+            const response = await axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter,
                 {headers: { Authorization: `Bearer ${token}` }}
             )
-                .then(response => {
-                    setUsers(response.data.user)
-                })
-        },300);
+            setUsers(response.data.user)
+                
+        },200);
 
         return ()=>clearTimeout(timer);
     }, [filter])
@@ -34,19 +33,19 @@ const Users = () => {
             }} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
         </div>
         <div>
-            {users.map(user => {<User key={user._id}  user={user} />})}
+            {users.map(user => <User key={user._id}  user={user} />)}
         </div>
     </>
 }
 
-function User({user,token}) {
+function User({user}) {
     const navigate = useNavigate();
 
     return <div className="flex justify-between">
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
-                    {user.firstName[0]}
+                    {user.firstName[0].toUpperCase()}
                 </div>
             </div>
             <div className="flex flex-col justify-center h-ful">
