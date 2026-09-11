@@ -8,9 +8,12 @@ const Users = () => {
     // Replace with backend call
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
+    const [name,setName] = useState("");
     const token = localStorage.getItem("token");
+    const curUserName = localStorage.getItem("name");
 
     useEffect(() => {
+        setName(curUserName);
         // Waiting 300 ms after user stops typing to send backend request(debouncing)
         const timer = setTimeout(async ()=>{
             const response = await axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter,
@@ -33,12 +36,14 @@ const Users = () => {
             }} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
         </div>
         <div>
-            {users.map(user => <User key={user._id}  user={user} />)}
+            {users.map(user => {
+                return <User key={user._id}  user={user} />;
+            })}
         </div>
     </>
 }
 
-function User({user}) {
+function User({user,name}) {
     const navigate = useNavigate();
 
     return <div className="flex justify-between">
