@@ -15,7 +15,7 @@ function App4(){
     const [time,setTime] = useState(0);
     useTimer(()=>{
         setTime(t=>t+1);
-    },1000);
+    },100000);
     return <div>
         Timer at : {time}
     </div>
